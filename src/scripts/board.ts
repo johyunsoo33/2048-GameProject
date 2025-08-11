@@ -12,14 +12,12 @@ export function CreateBoard() {
   for (let row = 0; row < 4; row++) {
     for (let col = 0; col < 4; col++) {
       const cell = document.createElement("div");
+      cell.className = "cell";
       cell.classList.add("cell");
-      cell.style.border = `0.0625rem solid  red`;
-      cell.style.borderRadius = `0.625rem`;
-      cell.style.padding = `0.625rem`;
       let numberBox = document.createElement("div");
       let text = document.createTextNode(Math.pow(2, row + col + 1).toString());
       numberBox.appendChild(text);
-      numberBox.style.textAlign = "center";
+      numberBox.className = "cellBox";
       cell.appendChild(numberBox);
       mainBoard!.appendChild(cell);
     }

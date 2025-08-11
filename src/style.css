@@ -1,5 +1,17 @@
 #gameBoard {
-  width: 70%;
+  width: 50%;
   border: 1px solid black;
   margin: 0 auto;
+}
+.cell {
+  border: 0.0625rem solid red;
+  border-radius: 0.625rem;
+  padding: 0.625rem;
+  aspect-ratio: 1;
+}
+.cellBox {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
