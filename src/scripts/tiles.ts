@@ -36,6 +36,6 @@ export function TilesInfo() {
   numberBox.className = "cellBox";
 }
 export function initializeTiles() {
-  CreateTiles(); // 첫 번째 타일
-  CreateTiles(); // 두 번째 타일
+  CreateTiles();
+  CreateTiles();
 }
