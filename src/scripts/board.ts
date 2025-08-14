@@ -1,29 +1,35 @@
+import { boardSize } from "./boardSize";
+import { grid } from "./tiles";
+
 // 2048 메인 보드 생성
 const mainBoard = document.getElementById("gameBoard");
 export function setUpBoard() {
-  mainBoard!.style.gridTemplateColumns = `repeat(4, 1fr)`;
-  mainBoard!.style.gridTemplateRows = `repeat(4, 1fr)`;
+  mainBoard!.style.gridTemplateColumns = `repeat(${boardSize}, 1fr)`;
+  mainBoard!.style.gridTemplateRows = `repeat(${boardSize}, 1fr)`;
   mainBoard!.style.gridGap = `1rem`;
 }
-export function CreateBoard() {
+export function CreateBoard(grid: number[][]) {
+  mainBoard!.innerHTML = ""; // 기존 셀들 제거
   mainBoard!.style.display = `grid`;
   setUpBoard();
 
-  for (let row = 0; row < 4; row++) {
-    for (let col = 0; col < 4; col++) {
+  for (let row = 0; row < boardSize; row++) {
+    for (let col = 0; col < boardSize; col++) {
       const cell = document.createElement("div");
       cell.className = "cell";
-      cell.classList.add("cell");
-      let numberBox = document.createElement("div");
-      let text = document.createTextNode(Math.pow(2, row + col + 1).toString());
-      numberBox.appendChild(text);
-      numberBox.className = "cellBox";
-      cell.appendChild(numberBox);
       mainBoard!.appendChild(cell);
+
+      const value = grid[row][col];
+      if (value !== 0) {
+        cell.textContent = value.toString();
+        cell.dataset.value = value.toString();
+        cell.dataset.row = row.toString();
+        cell.dataset.col = col.toString();
+      }
     }
   }
 }
 
 export function updateBoard() {
-  CreateBoard();
+  CreateBoard(grid);
 }
