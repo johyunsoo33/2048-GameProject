@@ -1,5 +1,5 @@
 import { boardSize } from "./boardSize";
-import { grid } from "./tiles";
+import { grid, TilesInfo } from "./tiles";
 
 // 2048 메인 보드 생성
 const mainBoard = document.getElementById("gameBoard");
@@ -21,7 +21,9 @@ export function CreateBoard(grid: number[][]) {
 
       const value = grid[row][col];
       if (value !== 0) {
-        cell.textContent = value.toString();
+        const numberBox = TilesInfo(value); // TilesInfo 사용!
+        cell.appendChild(numberBox);
+        cell.dataset.value = value.toString();
         cell.dataset.value = value.toString();
         cell.dataset.row = row.toString();
         cell.dataset.col = col.toString();

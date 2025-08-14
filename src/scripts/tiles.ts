@@ -29,11 +29,12 @@ export function CreateTiles() {
   }
 }
 
-export function TilesInfo() {
+export function TilesInfo(value: number) {
   let numberBox = document.createElement("div");
-  let text = document.createTextNode("2");
+  let text = document.createTextNode(value.toString());
   numberBox.appendChild(text);
   numberBox.className = "cellBox";
+  return numberBox;
 }
 export function initializeTiles() {
   CreateTiles();
