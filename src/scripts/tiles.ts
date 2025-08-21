@@ -1,5 +1,6 @@
 import { boardSize } from "./boardSize";
 export let grid: number[][] = createEmptyGrid();
+console.log(grid);
 
 export function createEmptyGrid(): number[][] {
   //Array.from함수로 배열을 만드는데 Array(boardSize)를 통해 하나의 배열을 만든다 그 배열이 boardSize만큼 생성이 된다

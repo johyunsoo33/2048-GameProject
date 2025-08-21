@@ -21,7 +21,7 @@ export function CreateBoard(grid: number[][]) {
 
       const value = grid[row][col];
       if (value !== 0) {
-        const numberBox = TilesInfo(value); // TilesInfo 사용!
+        const numberBox = TilesInfo(value);
         cell.appendChild(numberBox);
         cell.dataset.value = value.toString();
         cell.dataset.value = value.toString();
