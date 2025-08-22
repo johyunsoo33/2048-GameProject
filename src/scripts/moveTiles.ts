@@ -1,27 +1,44 @@
 import { updateBoard } from "./board";
 import { boardSize } from "./boardSize";
-import { grid } from "./tiles";
+import { mergeTiles } from "./mergeTiles";
+import { grid, initializeTiles } from "./tiles";
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
     rowCanMove();
     console.log("왼쪽 타일 검색");
     rowTileMoving("left");
     console.log("왼쪽 타일 이동");
+    initializeTiles();
+    mergeTiles("left");
+    rowTileMoving("left");
+    updateBoard();
   } else if (event.key === "ArrowRight") {
     rowCanMove();
     console.log("오른쪽 타일 검색");
     rowTileMoving("right");
     console.log("오른쪽 타일 이동");
+    initializeTiles();
+    mergeTiles("right");
+    rowTileMoving("right");
+    updateBoard();
   } else if (event.key === "ArrowUp") {
     colCanMove();
     console.log("위쪽 타일 검색");
     colTileMoving("up");
     console.log("위쪽 타일 이동");
+    initializeTiles();
+    mergeTiles("up");
+    colTileMoving("up");
+    updateBoard();
   } else if (event.key === "ArrowDown") {
     colCanMove();
     console.log("아래쪽 타일 검색");
     colTileMoving("down");
     console.log("아래쪽 타일 이동");
+    initializeTiles();
+    mergeTiles("down");
+    colTileMoving("down");
+    updateBoard();
   }
 });
 
