@@ -12,6 +12,7 @@ export function mergeTiles(dir: string) {
         if (current !== 0 && grid[row - 1][col] === current) {
           grid[row - 1][col] = current * 2;
           grid[row][col] = 0;
+          return true;
         }
       }
     }
@@ -24,6 +25,7 @@ export function mergeTiles(dir: string) {
         if (current !== 0 && grid[row + 1][col] === current) {
           grid[row + 1][col] = current * 2;
           grid[row][col] = 0;
+          return true;
         }
       }
     }
@@ -37,6 +39,7 @@ export function mergeTiles(dir: string) {
         if (current !== 0 && grid[row][col - 1] === current) {
           grid[row][col - 1] = current * 2;
           grid[row][col] = 0;
+          return true;
         }
       }
     }
@@ -49,8 +52,10 @@ export function mergeTiles(dir: string) {
         if (current !== 0 && grid[row][col + 1] === current) {
           grid[row][col + 1] = current * 2;
           grid[row][col] = 0;
+          return true;
         }
       }
     }
   }
+  return false;
 }

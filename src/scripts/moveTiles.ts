@@ -3,86 +3,49 @@ import { boardSize } from "./boardSize";
 import { mergeTiles } from "./mergeTiles";
 import { grid, initializeTiles } from "./tiles";
 document.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowLeft") {
-    rowCanMove();
-    console.log("왼쪽 타일 검색");
-    rowTileMoving("left");
-    console.log("왼쪽 타일 이동");
+  let moved1 = false,
+    merged = false,
+    moved2 = false;
+
+  switch (event.key) {
+    case "ArrowLeft":
+      moved1 = rowTileMoving("left");
+      merged = mergeTiles("left");
+      moved2 = rowTileMoving("left");
+      console.log("왼쪽 타일 처리 완료");
+      break;
+
+    case "ArrowRight":
+      moved1 = rowTileMoving("right");
+      merged = mergeTiles("right");
+      moved2 = rowTileMoving("right");
+      console.log("오른쪽 타일 처리 완료");
+      break;
+
+    case "ArrowUp":
+      moved1 = colTileMoving("up");
+      merged = mergeTiles("up");
+      moved2 = colTileMoving("up");
+      console.log("위쪽 타일 처리 완료");
+      break;
+
+    case "ArrowDown":
+      moved1 = colTileMoving("down");
+      merged = mergeTiles("down");
+      moved2 = colTileMoving("down");
+      console.log("아래쪽 타일 처리 완료");
+      break;
+
+    default:
+      return; // 다른 키는 무시
+  }
+
+  // 변화가 있었을 때만 새 타일 생성 및 업데이트
+  if (moved1 || merged || moved2) {
     initializeTiles();
-    mergeTiles("left");
-    rowTileMoving("left");
-    updateBoard();
-  } else if (event.key === "ArrowRight") {
-    rowCanMove();
-    console.log("오른쪽 타일 검색");
-    rowTileMoving("right");
-    console.log("오른쪽 타일 이동");
-    initializeTiles();
-    mergeTiles("right");
-    rowTileMoving("right");
-    updateBoard();
-  } else if (event.key === "ArrowUp") {
-    colCanMove();
-    console.log("위쪽 타일 검색");
-    colTileMoving("up");
-    console.log("위쪽 타일 이동");
-    initializeTiles();
-    mergeTiles("up");
-    colTileMoving("up");
-    updateBoard();
-  } else if (event.key === "ArrowDown") {
-    colCanMove();
-    console.log("아래쪽 타일 검색");
-    colTileMoving("down");
-    console.log("아래쪽 타일 이동");
-    initializeTiles();
-    mergeTiles("down");
-    colTileMoving("down");
     updateBoard();
   }
 });
-
-export function colCanMove() {
-  for (let row = 0; row < boardSize; row++) {
-    for (let col = 0; col < boardSize; col++) {
-      const current = grid[row][col];
-
-      if (current === 0) return true;
-
-      // 상하 비교 (세로 방향) - row를 변경
-      if (row < boardSize - 1 && grid[row + 1][col] === current) {
-        console.log("같은값 있다 (세로)");
-        return true;
-      }
-      if (row > 0 && grid[row - 1][col] === current) {
-        console.log("같은값 있다 (세로)");
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-export function rowCanMove() {
-  for (let row = 0; row < boardSize; row++) {
-    for (let col = 0; col < boardSize; col++) {
-      const current = grid[row][col];
-
-      if (current === 0) return true;
-
-      // 좌우 비교 (가로 방향) - col을 변경
-      if (col < boardSize - 1 && grid[row][col + 1] === current) {
-        console.log("같은값 있다 (가로)");
-        return true;
-      }
-      if (col > 0 && grid[row][col - 1] === current) {
-        console.log("같은값 있다 (가로)");
-        return true;
-      }
-    }
-  }
-  return false;
-}
 export function colTileMoving(dir: string) {
   let moved = false;
 
