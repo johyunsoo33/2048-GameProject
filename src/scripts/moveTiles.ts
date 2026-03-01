@@ -2,6 +2,7 @@ import { updateBoard } from "./board";
 import { boardSize } from "./boardSize";
 import { GameClear } from "./clear";
 import { mergeTiles } from "./mergeTiles";
+import type { MergeResult } from "./mergeTiles";
 import { grid, CreateTiles } from "./tiles";
 
 let cleared = false;
@@ -11,32 +12,37 @@ document.addEventListener("keydown", (event) => {
   let moved1 = false,
     merged = false,
     moved2 = false;
+  let mergeResult: MergeResult = { merged: false, mergedCells: [] };
 
   switch (event.key) {
     case "ArrowLeft":
       moved1 = rowTileMoving("left");
-      merged = mergeTiles("left");
+      mergeResult = mergeTiles("left");
+      merged = mergeResult.merged;
       moved2 = rowTileMoving("left");
       console.log("왼쪽 타일 처리 완료");
       break;
 
     case "ArrowRight":
       moved1 = rowTileMoving("right");
-      merged = mergeTiles("right");
+      mergeResult = mergeTiles("right");
+      merged = mergeResult.merged;
       moved2 = rowTileMoving("right");
       console.log("오른쪽 타일 처리 완료");
       break;
 
     case "ArrowUp":
       moved1 = colTileMoving("up");
-      merged = mergeTiles("up");
+      mergeResult = mergeTiles("up");
+      merged = mergeResult.merged;
       moved2 = colTileMoving("up");
       console.log("위쪽 타일 처리 완료");
       break;
 
     case "ArrowDown":
       moved1 = colTileMoving("down");
-      merged = mergeTiles("down");
+      mergeResult = mergeTiles("down");
+      merged = mergeResult.merged;
       moved2 = colTileMoving("down");
       console.log("아래쪽 타일 처리 완료");
       break;
@@ -49,6 +55,19 @@ document.addEventListener("keydown", (event) => {
   if (moved1 || merged || moved2) {
     CreateTiles();
     updateBoard();
+
+    mergeResult.mergedCells.forEach(({ row, col }) => {
+      const cell = document.querySelector(
+        `[data-row="${row}"][data-col="${col}"]`
+      ) as HTMLElement | null;
+      if (cell) {
+        cell.classList.add("merge");
+        cell.addEventListener("animationend", () => {
+          cell.classList.remove("merge");
+        }, { once: true });
+      }
+    });
+
     setTimeout(() => {
       if (GameClear()) cleared = true;
     }, 0);
