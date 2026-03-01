@@ -1,8 +1,14 @@
 import { boardSize } from "./boardSize";
 import { grid } from "./tiles";
 
-export function mergeTiles(dir: string) {
+export type MergeResult = {
+  merged: boolean;
+  mergedCells: { row: number; col: number }[];
+};
+
+export function mergeTiles(dir: string): MergeResult {
   let merged = false;
+  const mergedCells: { row: number; col: number }[] = [];
 
   if (dir === "up") {
     // 위쪽 화살표: 같은 수의 타일을 상단 방향으로 병합
@@ -13,6 +19,7 @@ export function mergeTiles(dir: string) {
           grid[row - 1][col] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          mergedCells.push({ row: row - 1, col });
         }
       }
     }
@@ -25,6 +32,7 @@ export function mergeTiles(dir: string) {
           grid[row + 1][col] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          mergedCells.push({ row: row + 1, col });
         }
       }
     }
@@ -37,6 +45,7 @@ export function mergeTiles(dir: string) {
           grid[row][col - 1] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          mergedCells.push({ row, col: col - 1 });
         }
       }
     }
@@ -49,10 +58,11 @@ export function mergeTiles(dir: string) {
           grid[row][col + 1] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          mergedCells.push({ row, col: col + 1 });
         }
       }
     }
   }
 
-  return merged;
+  return { merged, mergedCells };
 }
