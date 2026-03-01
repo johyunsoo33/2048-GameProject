@@ -1,8 +1,13 @@
 import { updateBoard } from "./board";
 import { boardSize } from "./boardSize";
+import { GameClear } from "./clear";
 import { mergeTiles } from "./mergeTiles";
-import { grid, initializeTiles } from "./tiles";
+import { grid, CreateTiles } from "./tiles";
+
+let cleared = false;
+
 document.addEventListener("keydown", (event) => {
+  if (cleared) return;
   let moved1 = false,
     merged = false,
     moved2 = false;
@@ -42,8 +47,11 @@ document.addEventListener("keydown", (event) => {
 
   // 변화가 있었을 때만 새 타일 생성 및 업데이트
   if (moved1 || merged || moved2) {
-    initializeTiles();
+    CreateTiles();
     updateBoard();
+    setTimeout(() => {
+      if (GameClear()) cleared = true;
+    }, 0);
   }
 });
 export function colTileMoving(dir: string) {
@@ -93,10 +101,6 @@ export function colTileMoving(dir: string) {
     }
   }
 
-  if (moved) {
-    updateBoard();
-  }
-
   return moved;
 }
 
@@ -142,9 +146,6 @@ export function rowTileMoving(dir: string) {
         }
       }
     }
-  }
-  if (moved) {
-    updateBoard();
   }
   return moved;
 }

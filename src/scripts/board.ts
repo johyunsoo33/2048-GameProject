@@ -24,7 +24,6 @@ export function CreateBoard(grid: number[][]) {
         const numberBox = TilesInfo(value);
         cell.appendChild(numberBox);
         cell.dataset.value = value.toString();
-        cell.dataset.value = value.toString();
         cell.dataset.row = row.toString();
         cell.dataset.col = col.toString();
       }

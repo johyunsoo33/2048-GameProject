@@ -25,7 +25,7 @@ export function CreateTiles() {
   if (emptyCell.length > 0) {
     const { row, col } =
       emptyCell[Math.floor(Math.random() * emptyCell.length)];
-    const value = 2;
+    const value = 2; // 새 타일의 값은 항상 2로 시작
     grid[row][col] = value;
   }
 }
