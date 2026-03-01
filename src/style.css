@@ -24,66 +24,66 @@
 .cell[data-value="2"] {
   background-color: #eee4da;
   color: #776e65;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="4"] {
   background-color: #ede0c8;
   color: #776e65;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="8"] {
   background-color: #f2b179;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="16"] {
   background-color: #f59563;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="32"] {
   background-color: #f67c5f;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="64"] {
   background-color: #f65e3b;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="128"] {
   background-color: #edcf72;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="256"] {
   background-color: #edcc61;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="512"] {
   background-color: #edc850;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="1024"] {
   background-color: #edc53f;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .cell[data-value="2048"] {
   background-color: #edc22e;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
