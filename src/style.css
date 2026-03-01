@@ -1,10 +1,11 @@
 #gameBoard {
   width: 50%;
-  border: 1px solid black;
   margin: 0 auto;
+  background-color: #bbada0;
+  border-radius: 0.75rem;
+  padding: 1rem;
 }
 .cell {
-  border: 0.0625rem solid red;
   border-radius: 0.625rem;
   padding: 0.625rem;
   aspect-ratio: 1;
@@ -14,4 +15,75 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.cell[data-value="0"] {
+  background-color: #cdc1b4;
+}
+
+.cell[data-value="2"] {
+  background-color: #eee4da;
+  color: #776e65;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="4"] {
+  background-color: #ede0c8;
+  color: #776e65;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="8"] {
+  background-color: #f2b179;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="16"] {
+  background-color: #f59563;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="32"] {
+  background-color: #f67c5f;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="64"] {
+  background-color: #f65e3b;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="128"] {
+  background-color: #edcf72;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="256"] {
+  background-color: #edcc61;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="512"] {
+  background-color: #edc850;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="1024"] {
+  background-color: #edc53f;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cell[data-value="2048"] {
+  background-color: #edc22e;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
 }
