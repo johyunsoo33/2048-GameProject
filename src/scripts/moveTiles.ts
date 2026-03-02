@@ -1,6 +1,7 @@
 import { updateBoard } from "./board";
 import { boardSize } from "./boardSize";
 import { GameClear } from "./clear";
+import { GameOver } from "./gameOver";
 import { mergeTiles } from "./mergeTiles";
 import type { MergeResult } from "./mergeTiles";
 import { grid, CreateTiles } from "./tiles";
@@ -58,18 +59,25 @@ document.addEventListener("keydown", (event) => {
 
     mergeResult.mergedCells.forEach(({ row, col }) => {
       const cell = document.querySelector(
-        `[data-row="${row}"][data-col="${col}"]`
+        `[data-row="${row}"][data-col="${col}"]`,
       ) as HTMLElement | null;
       if (cell) {
         cell.classList.add("merge");
-        cell.addEventListener("animationend", () => {
-          cell.classList.remove("merge");
-        }, { once: true });
+        cell.addEventListener(
+          "animationend",
+          () => {
+            cell.classList.remove("merge");
+          },
+          { once: true },
+        );
       }
     });
 
     setTimeout(() => {
       if (GameClear()) cleared = true;
+      if (GameOver()) {
+        window.alert("게임 오버");
+      }
     }, 0);
   }
 });
