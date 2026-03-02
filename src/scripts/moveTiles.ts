@@ -4,6 +4,7 @@ import { GameClear } from "./clear";
 import { GameOver } from "./gameOver";
 import { mergeTiles } from "./mergeTiles";
 import type { MergeResult } from "./mergeTiles";
+import { addScore } from "./score";
 import { grid, CreateTiles } from "./tiles";
 
 let cleared = false;
@@ -13,7 +14,11 @@ document.addEventListener("keydown", (event) => {
   let moved1 = false,
     merged = false,
     moved2 = false;
-  let mergeResult: MergeResult = { merged: false, mergedCells: [] };
+  let mergeResult: MergeResult = {
+    merged: false,
+    mergedCells: [],
+    scoreGained: 0,
+  };
 
   switch (event.key) {
     case "ArrowLeft":
@@ -54,6 +59,7 @@ document.addEventListener("keydown", (event) => {
 
   // 변화가 있었을 때만 새 타일 생성 및 업데이트
   if (moved1 || merged || moved2) {
+    addScore(mergeResult.scoreGained);
     CreateTiles();
     updateBoard();
 

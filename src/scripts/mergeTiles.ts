@@ -4,11 +4,13 @@ import { grid } from "./tiles";
 export type MergeResult = {
   merged: boolean;
   mergedCells: { row: number; col: number }[];
+  scoreGained: number;
 };
 
 export function mergeTiles(dir: string): MergeResult {
   let merged = false;
   const mergedCells: { row: number; col: number }[] = [];
+  let scoreGained = 0;
 
   if (dir === "up") {
     // 위쪽 화살표: 같은 수의 타일을 상단 방향으로 병합
@@ -19,6 +21,7 @@ export function mergeTiles(dir: string): MergeResult {
           grid[row - 1][col] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          scoreGained += current * 2;
           mergedCells.push({ row: row - 1, col });
         }
       }
@@ -32,6 +35,7 @@ export function mergeTiles(dir: string): MergeResult {
           grid[row + 1][col] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          scoreGained += current * 2;
           mergedCells.push({ row: row + 1, col });
         }
       }
@@ -45,6 +49,7 @@ export function mergeTiles(dir: string): MergeResult {
           grid[row][col - 1] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          scoreGained += current * 2;
           mergedCells.push({ row, col: col - 1 });
         }
       }
@@ -58,11 +63,12 @@ export function mergeTiles(dir: string): MergeResult {
           grid[row][col + 1] = current * 2;
           grid[row][col] = 0;
           merged = true;
+          scoreGained += current * 2;
           mergedCells.push({ row, col: col + 1 });
         }
       }
     }
   }
 
-  return { merged, mergedCells };
+  return { merged, mergedCells, scoreGained };
 }
