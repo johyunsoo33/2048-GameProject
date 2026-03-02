@@ -11,6 +11,7 @@ export function getScore(): number {
 
 export function resetScore() {
   totalScore = 0;
+  updateScoreUI();
 }
 function updateScoreUI() {
   const el = document.getElementById("score");

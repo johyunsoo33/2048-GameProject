@@ -7,9 +7,14 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <header><h1>조현수의 게임 만들기 프로젝트</h1></header>
+    <header><h1>2048 게임 바닐라 프로젝트</h1></header>
     <main>
-      <a href="/src/2048.html">2048 게임으로 이동</a>
+      <div id="scoreBoard">점수: <span id="score">0</span></div>
+      <div id="gameBoard"></div>
     </main>
+    <footer>
+      <button id="newGameBtn"">새 게임</button>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
