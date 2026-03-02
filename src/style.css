@@ -105,3 +105,11 @@
   animation: merge-pop 0.15s ease-in-out;
   will-change: transform;
 }
+
+/* 방탈출 게임 스타일 */
+.RoomMainBox {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
