@@ -1,5 +1,6 @@
 #gameBoard {
-  width: 50%;
+  width: min(50vw, 80vh);
+  aspect-ratio: 1;
   margin: 0 auto;
   background-color: #bbada0;
   border-radius: 0.75rem;
@@ -89,9 +90,15 @@
 }
 
 @keyframes merge-pop {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cell.merge {
