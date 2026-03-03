@@ -2,10 +2,35 @@ import { createHotSpot } from "./createHotSpot";
 import { RoomTextChange } from "./RoomTextChange";
 
 export function createRoom1() {
-  const bgImage = document.querySelector(".RoomBgImage") as HTMLImageElement;
-  bgImage.src = "/room1.png";
+  const isMobile = window.innerWidth <= 768;
 
-  createHotSpot(30, 50, 10, 15, () => {
-    RoomTextChange("서랍 안에서 열쇠가 발견됐다!");
-  });
+  if (isMobile) {
+    createHotSpot(30, 55, 30, 20, () => {
+      RoomTextChange("각종 메스들과 의료 약품이 보이는 책상이다.");
+    });
+    createHotSpot(90, 57, 28, 18, () => {
+      RoomTextChange(
+        "의료 일지와 환자 기록이 보이는 책상이다. 서랍속에는 환자 기록이 더 많이 보인다. ",
+      );
+    });
+    createHotSpot(52, 80, 25, 18, () => {
+      RoomTextChange(
+        "병원에서 일하는 의사의 메달이 바닥에 떨어져 있다. 메달에는 이름과 분야가 적혀있다. 이름은 '박준석'이고, 분야는 '흉부외과'이다. ",
+      );
+    });
+  } else {
+    createHotSpot(20, 60, 20, 18, () => {
+      RoomTextChange("각종 메스들과 의료 약품이 보이는 책상이다.");
+    });
+    createHotSpot(75, 60, 20, 18, () => {
+      RoomTextChange(
+        "의료 일지와 환자 기록이 보이는 책상이다. 서랍속에는 환자 기록이 더 많이 보인다. ",
+      );
+    });
+    createHotSpot(53, 85, 10, 18, () => {
+      RoomTextChange(
+        "병원에서 일하는 의사의 메달이 바닥에 떨어져 있다. 메달에는 이름과 분야가 적혀있다. 이름은 '박준석'이고, 분야는 '흉부외과'이다. ",
+      );
+    });
+  }
 }

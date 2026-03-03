@@ -146,3 +146,33 @@ body {
   cursor: pointer;
   border: 2px dashed red;
 }
+.recordNoteIcon {
+  cursor: pointer;
+  border: 2px dashed red;
+}
+.inventoryIcon {
+  cursor: pointer;
+  border: 2px dashed red;
+}
+.recordNoteBookContent {
+  position: relative;
+  line-height: 0;
+}
+.noteBookCloseBtn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px dashed red;
+  cursor: pointer;
+}
+.inventoryArea {
+  position: relative;
+  line-height: 0;
+}
+.inventoryCloseBtn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px dashed red;
+  cursor: pointer;
+}

@@ -10,7 +10,43 @@
   <body>
     <main class="RoomMainBox">
       <div class="RoomGameArea">
-        <img class="RoomBgImage" src="" alt="room" />
+        <picture>
+          <source media="(max-width: 768px)" srcset="/room1-mobile.png" />
+          <img class="RoomBgImage" src="/room1.png" alt="room" />
+        </picture>
+      </div>
+      <div class="recordNoteIcon">
+        <img src="/recordNote.png" alt="record note" />
+      </div>
+      <div class="inventoryIcon">
+        <img src="/inventory.png" alt="inventory" />
+      </div>
+      <div class="recordNoteBook">
+        <div class="recordNoteBookContent">
+          <div class="cotentBox">
+            <div class="left_content"></div>
+            <div class="right_content"></div>
+          </div>
+          <div class="noteBookCloseBtn">
+            <img src="/closeBtn.png" alt="close button" />
+          </div>
+          <div class="arrowBox">
+            <div class="left_Arrow">
+              <img src="/leftArrow.png" alt="left arrow" />
+            </div>
+            <div class="right_Arrow">
+              <img src="/rightArrow.png" alt="right arrow" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inventory">
+        <div class="inventoryArea">
+          // 인벤토리 아이템이 추가될 영역
+          <div class="inventoryCloseBtn">
+            <img src="/closeBtn.png" alt="close button" />
+          </div>
+        </div>
       </div>
       <div class="CharaterTextBox"><p class="CharaterText"></p></div>
     </main>

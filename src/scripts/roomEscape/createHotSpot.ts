@@ -9,9 +9,19 @@ export function createHotSpot(
   hotSpot.className = "HotSpot";
   hotSpot.style.left = `${x}%`;
   hotSpot.style.top = `${y}%`;
-  hotSpot.style.width = `${width}%`;
-  hotSpot.style.height = `${height}%`;
+
+  const container = document.getElementsByClassName(
+    "RoomGameArea",
+  )[0] as HTMLElement;
+  const baseWidth = 1920;
+  const scale = container.clientWidth / baseWidth;
+  const clampedScale = Math.min(scale, 1);
+
+  hotSpot.style.width = `${width * clampedScale}%`;
+  hotSpot.style.height = "0";
+  hotSpot.style.aspectRatio = "1 / 1";
+
   hotSpot.addEventListener("click", onClick);
-  document.getElementsByClassName("RoomMainBox")[0].appendChild(hotSpot);
+  container.appendChild(hotSpot);
   return hotSpot;
 }
