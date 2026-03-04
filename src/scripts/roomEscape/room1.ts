@@ -3,6 +3,18 @@ import { NextStage } from "./NextStage";
 import { RoomTextChange } from "./RoomTextChange";
 
 export function createRoom1() {
+  const roomBgImage = document.getElementsByClassName(
+    "RoomBgImage",
+  )[0] as HTMLImageElement;
+  roomBgImage.src = "/room1.png";
+
+  const pictureSource = document.querySelector(
+    "picture source",
+  ) as HTMLSourceElement;
+  if (pictureSource) {
+    pictureSource.srcset = "/room1-mobile.png";
+  }
+
   const isMobile = window.innerWidth <= 768;
 
   if (isMobile) {

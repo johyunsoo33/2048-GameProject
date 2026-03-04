@@ -4,7 +4,7 @@ export function InventoryIcon() {
   )[0] as HTMLElement;
   inventoryIcon.style.position = "absolute";
   inventoryIcon.style.top = "20px";
-  inventoryIcon.style.left = "0%";
+  inventoryIcon.style.left = "70px";
   inventoryIcon.style.zIndex = "10";
 
   const recordNote = document.getElementsByClassName(
