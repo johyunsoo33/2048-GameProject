@@ -1,14 +1,12 @@
-export function NextStage() {
-  const roomBgImage = document.getElementsByClassName(
-    "RoomBgImage",
-  )[0] as HTMLImageElement;
-  roomBgImage.src = "/room2.png";
+import { createRoom2 } from "./room2";
 
-  // 모바일용 <source>도 업데이트
-  const pictureSource = document.querySelector(
-    "picture source",
-  ) as HTMLSourceElement;
-  if (pictureSource) {
-    pictureSource.srcset = "/room2-mobile.png";
-  }
+export function NextStage() {
+  const charaterText = document.getElementsByClassName(
+    "CharaterText",
+  )[0] as HTMLElement;
+  charaterText.style.display = "none";
+
+  document.querySelectorAll(".HotSpot").forEach((el) => el.remove());
+
+  createRoom2();
 }
