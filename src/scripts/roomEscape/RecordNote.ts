@@ -1,3 +1,5 @@
+import { resetCurrentPage } from "./proviso";
+
 export function RecordNoteIcon() {
   const recordNoteIcon = document.getElementsByClassName(
     "recordNoteIcon",
@@ -40,6 +42,7 @@ export function closeRecordNote() {
     "recordNoteBook",
   )[0] as HTMLElement;
   recordNote.style.display = "none";
+  resetCurrentPage();
 }
 document
   .getElementsByClassName("noteBookCloseBtn")?.[0]

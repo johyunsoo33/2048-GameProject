@@ -195,3 +195,59 @@ body {
   border: 1px dashed red;
   cursor: pointer;
 }
+.recordNoteBookContent {
+  width: 100%;
+  height: 100%;
+}
+.cotentBox {
+  display: flex;
+}
+.left_content {
+  margin: 20px auto;
+  text-align: center;
+  width: 50%;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 18px;
+  color: red;
+}
+.right_content {
+  display: flex;
+  margin: 20px auto;
+  text-align: center;
+  width: 50%;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 18px;
+  color: red;
+}
+.arrowBox {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  transform: translateY(-42%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+}
+.right_Arrow {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  display: block;
+}
+.right_Arrow > img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  display: block;
+}
+.left_Arrow > img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  display: block;
+  object-position: center;
+  transform: rotate(180deg);
+}
