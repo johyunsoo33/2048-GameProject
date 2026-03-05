@@ -150,10 +150,19 @@ body {
 .recordNoteIcon {
   cursor: pointer;
   border: 2px dashed red;
+  overflow: hidden;
 }
 .inventoryIcon {
   cursor: pointer;
   border: 2px dashed red;
+  overflow: hidden;
+}
+.recordNoteIcon > img,
+.inventoryIcon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .recordNoteBookContent {
   position: relative;

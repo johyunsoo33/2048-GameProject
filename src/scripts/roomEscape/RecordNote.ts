@@ -6,6 +6,8 @@ export function RecordNoteIcon() {
   recordNoteIcon.style.top = "20px";
   recordNoteIcon.style.right = "0%";
   recordNoteIcon.style.zIndex = "10";
+  recordNoteIcon.style.width = "60px";
+  recordNoteIcon.style.height = "60px";
 
   const recordNote = document.getElementsByClassName(
     "recordNoteBook",

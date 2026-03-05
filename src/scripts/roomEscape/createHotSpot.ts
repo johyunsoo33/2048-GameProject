@@ -18,7 +18,6 @@ export function createHotSpot(
   const clampedScale = Math.min(scale, 1);
 
   hotSpot.style.width = `${width * clampedScale}%`;
-  hotSpot.style.height = "0";
   hotSpot.style.aspectRatio = "1 / 1";
 
   hotSpot.addEventListener("click", onClick);

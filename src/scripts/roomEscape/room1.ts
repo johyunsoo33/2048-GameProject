@@ -1,5 +1,6 @@
 import { createHotSpot } from "./createHotSpot";
 import { NextStage } from "./NextStage";
+import { createProviso } from "./proviso";
 import { RoomTextChange } from "./RoomTextChange";
 
 export function createRoom1() {
@@ -39,8 +40,9 @@ export function createRoom1() {
       RoomTextChange(
         "의료 일지와 환자 기록이 보이는 책상이다. 서랍속에는 환자 기록이 더 많이 보인다. ",
       );
+      createProviso("1번 단서");
     });
-    createHotSpot(53, 85, 10, 18, () => {
+    createHotSpot(53, 78, 10, 18, () => {
       RoomTextChange(
         "병원에서 일하는 의사의 메달이 바닥에 떨어져 있다. 메달에는 이름과 분야가 적혀있다. 이름은 '박준석'이고, 분야는 '흉부외과'이다. ",
       );
