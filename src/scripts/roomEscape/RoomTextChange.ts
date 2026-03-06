@@ -15,10 +15,7 @@ export function RoomTextChange(text: string) {
   charaterText.style.padding = "20px";
   charaterText.style.color = "white";
   if (step >= 2) {
-    // 핫스폿 클릭한 이벤트가 즉시 닫지 않도록 다음 틱에 활성화
-    setTimeout(() => {
-      clueTextVisible = true;
-    }, 0);
+    clueTextVisible = true;
   }
 }
 
@@ -44,6 +41,8 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Enter") handleAdvance();
 });
 
-document.addEventListener("click", () => {
+document.addEventListener("click", (event) => {
+  const target = event.target as HTMLElement;
+  if (target.classList.contains("HotSpot")) return;
   handleAdvance();
 });
