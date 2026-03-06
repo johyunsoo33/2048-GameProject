@@ -26,7 +26,7 @@ function updateArrows() {
   }
 }
 
-function renderPage() {
+export function renderPage() {
   const leftEl = document.getElementsByClassName(
     "left_content",
   )[0] as HTMLElement;

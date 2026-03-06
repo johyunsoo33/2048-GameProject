@@ -1,3 +1,5 @@
+import { isHotSpotEnabled } from "./RoomTextChange";
+
 export function createHotSpot(
   x: number,
   y: number,
@@ -20,7 +22,7 @@ export function createHotSpot(
   hotSpot.style.width = `${width * clampedScale}%`;
   hotSpot.style.aspectRatio = "1 / 1";
 
-  hotSpot.style.pointerEvents = "none";
+  hotSpot.style.pointerEvents = isHotSpotEnabled() ? "auto" : "none";
   hotSpot.addEventListener("click", onClick);
   container.appendChild(hotSpot);
   return hotSpot;

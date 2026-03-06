@@ -1,6 +1,10 @@
 let step = 0;
 let clueTextVisible = false;
 
+export function isHotSpotEnabled() {
+  return step >= 2;
+}
+
 function getCharText() {
   return document.getElementsByClassName("CharaterText")[0] as HTMLElement;
 }
