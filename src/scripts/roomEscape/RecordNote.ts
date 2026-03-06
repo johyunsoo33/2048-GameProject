@@ -1,4 +1,5 @@
 import { resetCurrentPage } from "./proviso";
+import { showOverlay, hideOverlay } from "./Inventory";
 
 export function RecordNoteIcon() {
   const recordNoteIcon = document.getElementsByClassName(
@@ -25,6 +26,7 @@ export function RecordNote() {
   const recordNote = document.getElementsByClassName(
     "recordNoteBook",
   )[0] as HTMLElement;
+  showOverlay();
   recordNote.style.display = "block";
   recordNote.style.position = "absolute";
   recordNote.style.top = "50%";
@@ -42,6 +44,7 @@ export function closeRecordNote() {
     "recordNoteBook",
   )[0] as HTMLElement;
   recordNote.style.display = "none";
+  hideOverlay();
   resetCurrentPage();
 }
 document
