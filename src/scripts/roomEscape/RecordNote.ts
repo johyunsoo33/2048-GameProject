@@ -8,7 +8,7 @@ export function RecordNoteIcon() {
   recordNoteIcon.style.position = "absolute";
   recordNoteIcon.style.top = "20px";
   recordNoteIcon.style.right = "0%";
-  recordNoteIcon.style.zIndex = "10";
+  recordNoteIcon.style.zIndex = "5";
   recordNoteIcon.style.width = "60px";
   recordNoteIcon.style.height = "60px";
 
@@ -26,7 +26,7 @@ export function RecordNote() {
   const recordNote = document.getElementsByClassName(
     "recordNoteBook",
   )[0] as HTMLElement;
-  showOverlay();
+  showOverlay(closeRecordNote);
   recordNote.style.display = "block";
   recordNote.style.position = "absolute";
   recordNote.style.top = "50%";
@@ -47,8 +47,3 @@ export function closeRecordNote() {
   hideOverlay();
   resetCurrentPage();
 }
-document
-  .getElementsByClassName("noteBookCloseBtn")?.[0]
-  ?.addEventListener("click", () => {
-    closeRecordNote();
-  });

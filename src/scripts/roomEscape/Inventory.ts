@@ -1,4 +1,4 @@
-function getOrCreateOverlay(): HTMLElement {
+function getOrCreateOverlay(): { overlay: HTMLElement; closeBtn: HTMLElement } {
   let overlay = document.getElementById("modal-overlay") as HTMLElement;
   if (!overlay) {
     overlay = document.createElement("div");
@@ -11,17 +11,41 @@ function getOrCreateOverlay(): HTMLElement {
     overlay.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
     overlay.style.zIndex = "9";
     overlay.style.display = "none";
+
+    const closeBtn = document.createElement("div");
+    closeBtn.id = "overlay-close-btn";
+    closeBtn.className = "overlayCloseBtn";
+    const img = document.createElement("img");
+    img.src = "/closeBtn.png";
+    img.alt = "close";
+    closeBtn.appendChild(img);
+    overlay.appendChild(closeBtn);
+
     document.body.appendChild(overlay);
   }
-  return overlay;
+  const closeBtn = document.getElementById("overlay-close-btn") as HTMLElement;
+  return { overlay, closeBtn };
 }
 
-export function showOverlay() {
-  getOrCreateOverlay().style.display = "block";
+function getIcons() {
+  return [
+    document.getElementsByClassName("inventoryIcon")[0] as HTMLElement,
+    document.getElementsByClassName("recordNoteIcon")[0] as HTMLElement,
+  ];
+}
+
+export function showOverlay(onClose: () => void) {
+  const { overlay, closeBtn } = getOrCreateOverlay();
+  overlay.style.display = "block";
+  closeBtn.onclick = onClose;
+  getIcons().forEach((el) => (el.style.visibility = "hidden"));
 }
 
 export function hideOverlay() {
-  getOrCreateOverlay().style.display = "none";
+  const { overlay, closeBtn } = getOrCreateOverlay();
+  overlay.style.display = "none";
+  closeBtn.onclick = null;
+  getIcons().forEach((el) => (el.style.visibility = "visible"));
 }
 
 export function InventoryIcon() {
@@ -31,7 +55,7 @@ export function InventoryIcon() {
   inventoryIcon.style.position = "absolute";
   inventoryIcon.style.top = "20px";
   inventoryIcon.style.left = "70px";
-  inventoryIcon.style.zIndex = "10";
+  inventoryIcon.style.zIndex = "5";
   inventoryIcon.style.width = "60px";
   inventoryIcon.style.height = "60px";
 
@@ -49,7 +73,7 @@ export function Inventory() {
   const inventory = document.getElementsByClassName(
     "inventory",
   )[0] as HTMLElement;
-  showOverlay();
+  showOverlay(closeInventory);
   inventory.style.display = "block";
   inventory.style.position = "absolute";
   inventory.style.top = "50%";
@@ -69,8 +93,3 @@ export function closeInventory() {
   inventory.style.display = "none";
   hideOverlay();
 }
-document
-  .getElementsByClassName("inventoryCloseBtn")?.[0]
-  ?.addEventListener("click", () => {
-    closeInventory();
-  });

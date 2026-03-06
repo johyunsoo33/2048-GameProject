@@ -168,23 +168,23 @@ body {
   position: relative;
   line-height: 0;
 }
-.noteBookCloseBtn {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 1px dashed red;
-  cursor: pointer;
-}
 .inventoryArea {
   position: relative;
   line-height: 0;
 }
-.inventoryCloseBtn {
+.overlayCloseBtn {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 1px dashed red;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
+  z-index: 10;
+}
+.overlayCloseBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .prevStaveBtn {
   position: absolute;
