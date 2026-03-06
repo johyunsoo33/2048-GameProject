@@ -7,10 +7,10 @@ export function RecordNoteIcon() {
   )[0] as HTMLElement;
   recordNoteIcon.style.position = "absolute";
   recordNoteIcon.style.top = "20px";
-  recordNoteIcon.style.right = "0%";
+  recordNoteIcon.style.right = "70px";
   recordNoteIcon.style.zIndex = "5";
-  recordNoteIcon.style.width = "60px";
-  recordNoteIcon.style.height = "60px";
+  recordNoteIcon.style.width = "90px";
+  recordNoteIcon.style.height = "90px";
 
   const recordNote = document.getElementsByClassName(
     "recordNoteBook",

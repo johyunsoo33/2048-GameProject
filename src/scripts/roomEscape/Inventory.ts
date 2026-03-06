@@ -56,8 +56,8 @@ export function InventoryIcon() {
   inventoryIcon.style.top = "20px";
   inventoryIcon.style.left = "70px";
   inventoryIcon.style.zIndex = "5";
-  inventoryIcon.style.width = "60px";
-  inventoryIcon.style.height = "60px";
+  inventoryIcon.style.width = "90px";
+  inventoryIcon.style.height = "90px";
 
   const recordNote = document.getElementsByClassName(
     "recordNoteBook",
