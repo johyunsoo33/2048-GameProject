@@ -38,14 +38,14 @@ export function showOverlay(onClose: () => void) {
   const { overlay, closeBtn } = getOrCreateOverlay();
   overlay.style.display = "block";
   closeBtn.onclick = onClose;
-  getIcons().forEach((el) => (el.style.visibility = "hidden"));
+  getIcons().forEach((el) => (el.style.display = "none"));
 }
 
 export function hideOverlay() {
   const { overlay, closeBtn } = getOrCreateOverlay();
   overlay.style.display = "none";
   closeBtn.onclick = null;
-  getIcons().forEach((el) => (el.style.visibility = "visible"));
+  getIcons().forEach((el) => (el.style.display = "block"));
 }
 
 export function InventoryIcon() {
