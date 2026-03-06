@@ -20,6 +20,7 @@ export function createHotSpot(
   hotSpot.style.width = `${width * clampedScale}%`;
   hotSpot.style.aspectRatio = "1 / 1";
 
+  hotSpot.style.pointerEvents = "none";
   hotSpot.addEventListener("click", onClick);
   container.appendChild(hotSpot);
   return hotSpot;
