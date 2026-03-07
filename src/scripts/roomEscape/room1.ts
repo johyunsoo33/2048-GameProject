@@ -1,4 +1,5 @@
 import { createHotSpot } from "./createHotSpot";
+import { createItem } from "./createItem";
 import { NextStage } from "./NextStage";
 import { createProviso } from "./proviso";
 import { RoomTextChange } from "./RoomTextChange";
@@ -36,6 +37,7 @@ export function createRoom1() {
     createHotSpot(20, 60, 20, 18, () => {
       RoomTextChange("각종 메스들과 의료 약품이 보이는 책상이다.");
       createProviso("3번 단서");
+      createItem("test");
     });
     createHotSpot(75, 60, 20, 18, () => {
       RoomTextChange(
