@@ -7,6 +7,7 @@ import { InventoryIcon } from "./Inventory";
 import { PrevStageIcon } from "./prevStage";
 import { initProviso } from "./proviso";
 import { initInventorySlots } from "./createItem";
+import "./ItemInfo";
 document.addEventListener("DOMContentLoaded", () => {
   createRoom1();
   RecordNoteIcon();

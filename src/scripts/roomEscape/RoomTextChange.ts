@@ -48,5 +48,6 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("click", (event) => {
   const target = event.target as HTMLElement;
   if (target.classList.contains("HotSpot")) return;
+  if (target.closest(".item-container")) return;
   handleAdvance();
 });
