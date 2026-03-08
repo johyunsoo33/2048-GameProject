@@ -54,6 +54,10 @@ export function createProviso(clueKey: ClueKey) {
   }
 }
 
+export function areAllCluesCollected(requiredClues: ClueKey[]): boolean {
+  return requiredClues.every((clue) => collectedClues.includes(clue));
+}
+
 export function resetCurrentPage() {
   currentPage = 0;
 }

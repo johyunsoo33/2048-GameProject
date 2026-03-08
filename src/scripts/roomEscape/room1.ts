@@ -1,7 +1,7 @@
 import { createHotSpot } from "./createHotSpot";
 import { createItem } from "./createItem";
 import { NextStage } from "./NextStage";
-import { createProviso } from "./proviso";
+import { createProviso, areAllCluesCollected } from "./proviso";
 import { RoomTextChange } from "./RoomTextChange";
 import itemData from "../../data/RoomEscapeText/item.json";
 
@@ -56,6 +56,10 @@ export function createRoom1() {
       createItem(itemData["3번 증거"][0].item);
     });
     createHotSpot(63, 25, 10, 48, () => {
+      if (!areAllCluesCollected(["1번 단서", "2번 단서", "3번 단서"])) {
+        RoomTextChange("아직 단서를 모두 수집하지 못했다. 더 살펴봐야 할 것 같다.");
+        return;
+      }
       RoomTextChange(
         "수술실로 가는 문이 있다. 들어가보자 더 많은 단서가 있을지도 모르니까.",
       );
