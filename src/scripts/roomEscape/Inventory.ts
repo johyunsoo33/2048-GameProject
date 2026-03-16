@@ -79,10 +79,8 @@ export function Inventory() {
   inventory.style.top = "50%";
   inventory.style.right = "50%";
   inventory.style.transform = "translate(50%, -50%)";
-  inventory.style.width = "400px";
-  inventory.style.height = "400px";
-  inventory.style.backgroundColor = "white";
-  inventory.style.border = "2px solid red";
+  inventory.style.width = "440px";
+  inventory.style.height = "440px";
   inventory.style.zIndex = "10";
 }
 

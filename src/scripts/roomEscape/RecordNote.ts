@@ -33,10 +33,8 @@ export function RecordNote() {
   recordNote.style.top = "50%";
   recordNote.style.right = "50%";
   recordNote.style.transform = "translate(50%, -50%)";
-  recordNote.style.width = "400px";
-  recordNote.style.height = "300px";
-  recordNote.style.backgroundColor = "white";
-  recordNote.style.border = "2px solid red";
+  recordNote.style.width = "480px";
+  recordNote.style.height = "320px";
   recordNote.style.zIndex = "10";
 }
 
