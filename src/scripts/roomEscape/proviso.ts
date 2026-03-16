@@ -54,6 +54,10 @@ export function createProviso(clueKey: ClueKey) {
   }
 }
 
+export function isClueCollected(clueKey: ClueKey): boolean {
+  return collectedClues.includes(clueKey);
+}
+
 export function areAllCluesCollected(requiredClues: ClueKey[]): boolean {
   return requiredClues.every((clue) => collectedClues.includes(clue));
 }
