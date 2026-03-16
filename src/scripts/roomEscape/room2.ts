@@ -7,6 +7,7 @@ import {
 } from "./proviso";
 import { RoomTextChange } from "./RoomTextChange";
 import itemData from "../../data/RoomEscapeText/item.json";
+import provisoData from "../../data/RoomEscapeText/proviso.json";
 import { NextStage } from "./NextStage";
 
 export function createRoom2() {
@@ -26,45 +27,38 @@ export function createRoom2() {
 
   if (!isMobile) {
     createHotSpot(20, 60, 20, 18, () => {
-      if (isClueCollected("3번 단서")) {
-        RoomTextChange(
-          "이미 조사한 책상이다. 메스와 의료 약품 외엔 특별한 게 없었다.",
-        );
+      if (isClueCollected("4번 단서")) {
+        RoomTextChange(provisoData["4번 단서"][0].text_repeat);
         return;
       }
-      RoomTextChange("각종 메스들과 의료 약품이 보이는 책상이다.");
-      createProviso("3번 단서");
-      createItem(itemData["1번 증거"][0].item);
-    });
-    createHotSpot(75, 60, 20, 18, () => {
-      if (isClueCollected("1번 단서")) {
-        RoomTextChange("이미 살펴본 책상이다. 환자 기록은 이미 확인했다.");
-        return;
-      }
-      RoomTextChange(
-        "의료 일지와 환자 기록이 보이는 책상이다. 서랍속에는 환자 기록이 더 많이 보인다. ",
-      );
-      createProviso("1번 단서");
-      createItem(itemData["2번 증거"][0].item);
+      RoomTextChange(provisoData["4번 단서"][0].text_first);
+      createProviso("4번 단서");
+      createItem(itemData["4번 증거"][0].item);
     });
     createHotSpot(53, 78, 10, 18, () => {
-      if (isClueCollected("")) {
-        RoomTextChange("이미 확인한 메달이다. 박준석, 흉부외과.");
+      if (isClueCollected("5번 단서")) {
+        RoomTextChange(provisoData["5번 단서"][0].text_repeat);
         return;
       }
-      RoomTextChange(
-        "병원에서 일하는 의사의 메달이 바닥에 떨어져 있다. 메달에는 이름과 분야가 적혀있다. 이름은 '박준석'이고, 분야는 '흉부외과'이다. ",
-      );
-      createProviso("2번 단서");
-      createItem(itemData["3번 증거"][0].item);
+      RoomTextChange(provisoData["5번 단서"][0].text_first);
+      createProviso("5번 단서");
+      createItem(itemData["5번 증거"][0].item);
     });
     createHotSpot(63, 25, 10, 48, () => {
-      if (isClueCollected("")) {
-        RoomTextChange("이미 확인한 의약품들이다.");
+      if (isClueCollected("6번 단서")) {
+        RoomTextChange(provisoData["6번 단서"][0].text_repeat);
         return;
       }
-      RoomTextChange("수술실에서 사용한 의약품같다 확인해보자");
-      NextStage();
+      RoomTextChange(provisoData["6번 단서"][0].text_first);
+      createProviso("6번 단서");
+      createItem(itemData["6번 증거"][0].item);
+    });
+    createHotSpot(11, 45, 10, 48, () => {
+      if (!areAllCluesCollected(["6번 단서"])) {
+        RoomTextChange(provisoData["수술실 안쪽 문"][0].text_fail);
+        return;
+      }
+      RoomTextChange(provisoData["수술실 안쪽 문"][0].text_success);
     });
   }
 }

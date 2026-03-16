@@ -38,21 +38,21 @@ export function createRoom1() {
   // } else
   if (!isMobile) {
     createHotSpot(20, 60, 20, 18, () => {
-      if (isClueCollected("3번 단서")) {
-        RoomTextChange(provisoData["3번 단서"][0].text_repeat);
-        return;
-      }
-      RoomTextChange(provisoData["3번 단서"][0].text_first);
-      createProviso("3번 단서");
-      createItem(itemData["1번 증거"][0].item);
-    });
-    createHotSpot(75, 60, 20, 18, () => {
       if (isClueCollected("1번 단서")) {
         RoomTextChange(provisoData["1번 단서"][0].text_repeat);
         return;
       }
       RoomTextChange(provisoData["1번 단서"][0].text_first);
       createProviso("1번 단서");
+      createItem(itemData["1번 증거"][0].item);
+    });
+    createHotSpot(75, 60, 20, 18, () => {
+      if (isClueCollected("3번 단서")) {
+        RoomTextChange(provisoData["3번 단서"][0].text_repeat);
+        return;
+      }
+      RoomTextChange(provisoData["3번 단서"][0].text_first);
+      createProviso("3번 단서");
       createItem(itemData["2번 증거"][0].item);
     });
     createHotSpot(53, 78, 10, 18, () => {
